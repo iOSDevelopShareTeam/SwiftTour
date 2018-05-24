@@ -281,7 +281,7 @@ var shapeDescription = shape.simpleDescription()
 print(shape.simpleDescription(),"\n",shape.letConstant(parame:5))
 
 //给类添加一个初始化方法
-class nameShape {
+class NamedShape {
     var numberOfSides:Int = 0
     var name:String
     init(name:String) {
@@ -291,6 +291,65 @@ class nameShape {
         return "A shape with \(numberOfSides) sides."
     }
 }
+
+// 继承(定义一个初始化方法)
+class Square:NamedShape {
+    
+    var sideLength:Double
+    init(sideLength:Double, name:String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    
+    override func simpleDescription() -> String {
+        return "A square with sides of length\(sideLength)."
+    }
+    
+}
+let test  = Square(sideLength: 5.2, name: "my test square")
+test.area()
+test.simpleDescription()
+
+// 再定义一个继承自NamedShape的类Circle,在它的初始化方法中有一个半径和name的两个参数。在这个类中实现area和simpleDescription两个方法。
+class Circle:NamedShape {
+    
+    var radius:Double
+    init(radius:Double,name:String) {
+        self.radius = radius
+        super.init(name: name)
+        numberOfSides = 6
+    }
+    func area() -> Double {
+        return Double.pi * radius * radius
+    }
+    override func simpleDescription() -> String {
+        return "The radius of the circle is \(radius)."
+    }
+    
+}
+let testCircle = Circle(radius: 2, name: "the circle")
+testCircle.area()
+testCircle.simpleDescription()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
