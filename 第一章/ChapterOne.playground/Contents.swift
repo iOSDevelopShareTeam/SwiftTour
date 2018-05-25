@@ -335,7 +335,91 @@ let testCircle = Circle(radius: 2, name: "the circle")
 testCircle.area()
 testCircle.simpleDescription()
 
+// 对属性设置setter和getter方法
+class EquilateralTriangle:NamedShape {
+    
+    var sideLength:Double = 0.0
+    init(sideLength:Double,name:String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 3
+    }
+    var perimter:Double {
+        get {
+            return 3.0 * sideLength
+        }
+        set {
+            sideLength = newValue / 3.0
+        }
+    }
+    override func simpleDescription() -> String {
+        return "An equilteral Triangle with sides of length\(sideLength)."
+    }
+}
+var triangle = EquilateralTriangle (sideLength: 3.1, name: "a triangle")
+print(triangle.perimter)
+triangle.perimter = 9.9
+print(triangle.sideLength)
 
+// willset和didset 方法的执行（每当属性发生变化的时候就会执行）
+class TriangleAndSquare {
+    var  triangle:EquilateralTriangle {
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    var  square:Square {
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    init(size:Double,name:String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
+
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "another test shape")
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: 50, name: "larger square")
+print(triangleAndSquare.triangle.sideLength)
+// 可选值(如果？前面的值为空的时候 后面的代码不再执行 返回nil，不为空 就以可选值正常执行)
+let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
+let sideWidth = optionalSquare?.sideLength
+
+// 枚举使用
+enum Rank:Int {
+    case ace = 1
+    case two,three,four,five,six,seven,eight,nine,ten
+    case jack,queen,king
+    func simpleDescription() -> String {
+        switch self {
+        case .ace:
+            return "ace"
+        case .jack:
+            return "jack"
+        case .queen:
+            return "queen"
+        case .king:
+            return "king"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+let  ace = Rank.ace
+let aceRawValue = ace.rawValue
+
+// 练习：写一个函数从枚举`Rank`中取出两个枚举值比下他们的`rawValue`
+func compareFromRang(_ a:Rank,_ b:Rank) -> String{
+    if a.rawValue > b.rawValue {
+        return "\(a.simpleDescription())'s rawValue is the max than \(b.simpleDescription())'s"
+    }else {
+        return "\(a.simpleDescription())'s rawValue is the max than \(b.simpleDescription())'s"
+    }
+}
+compareFromRang(Rank.jack,Rank.king)
 
 
 
