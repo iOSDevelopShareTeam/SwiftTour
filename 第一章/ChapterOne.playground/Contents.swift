@@ -420,8 +420,12 @@ func compareFromRang(_ a:Rank,_ b:Rank) -> String{
     }
 }
 compareFromRang(Rank.jack,Rank.king)
-
-
+// 练习使用rawValue来访问成员变量
+if  let convertedRank = Rank (rawValue: 3) {
+    let threeDescription = convertedRank.simpleDescription()
+    print(threeDescription)
+    
+}
 
 
 
