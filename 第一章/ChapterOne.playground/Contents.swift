@@ -426,6 +426,105 @@ if  let convertedRank = Rank (rawValue: 3) {
     print(threeDescription)
     
 }
+// 一般来说我们不对枚举的初始值进行重新定义。
+enum  Suit {
+    case spades,hearts,diamonds,clubs
+    func simpleDescription() ->String {
+        switch self {
+        case .spades:
+            return "spades"
+        case .hearts:
+            return "hearts"
+        case .diamonds:
+            return "diamonds"
+        case .clubs:
+            return "clubs"
+        }
+    }
+    func colorDescription()->UIColor {
+        switch self {
+        case .spades,.clubs:
+            return UIColor.black
+        case .hearts,.diamonds:
+            return UIColor.red
+        }
+    }
+}
+
+let hearts = Suit.hearts
+let heartsDescription = hearts.simpleDescription()
+// 小练习
+let heartsColorDescription = hearts.colorDescription()
+
+enum ServerResponse {
+    case result(String, String)
+    case failure(String)
+}
+let success = ServerResponse.result("6:00 am", "8:09 pm")
+let failure = ServerResponse.failure("Out of cheese.")
+switch success {
+case let .result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .failure(message):
+    print("Failure ... \(message)")
+}
+// 结构体的定义
+struct Card {
+    var rank:Rank
+    var suit:Suit
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
+    }
+    
+}
+let threeOfSpades = Card(rank: .three, suit: .spades)
+let threeOfSpadesDescription = threeOfSpades.simpleDescription()
+
+// 让咱们一起声明一个协议吧
+protocol ExampleProtocol {
+    var simpleDescription:String{get}
+    mutating func adjust()
+}
+
+// 类 枚举和结构体都能够遵守协议
+class SimpleClass:ExampleProtocol {
+    var simpleDescription: String = "A very simple class."
+    var anotherProperty:Int = 69105
+    func  adjust() {
+        simpleDescription += " Now 100% adjusted."
+    }
+    
+}
+var a  = SimpleClass()
+a.adjust()
+let aDescription = a.simpleDescription
+struct SimpleStructure:ExampleProtocol {
+    var simpleDescription: String = "A simple structure"
+    mutating func adjust() {
+        simpleDescription += "(adjusted)"
+    }
+    
+}
+var b = SimpleStructure ()
+b.adjust()
+let bDescription = b.simpleDescription
+
+enum SimpleEnum:Int,ExampleProtocol {
+    case type,title
+    var simpleDescription:String {
+        switch self {
+        case .type:
+            return "A simple  enum  about  type"
+        case .title:
+            return "A simple  enum  about  title"
+        }
+    }
+    func adjust() {
+        simpleDescription
+    }
+}
+var c = SimpleEnum.type
+c.adjust()
 
 
 
