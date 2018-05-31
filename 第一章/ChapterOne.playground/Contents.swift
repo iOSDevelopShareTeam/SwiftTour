@@ -508,7 +508,7 @@ struct SimpleStructure:ExampleProtocol {
 var b = SimpleStructure ()
 b.adjust()
 let bDescription = b.simpleDescription
-
+//不能直接为枚举添加属性 要采用关联值来解决  例如下面的
 enum SimpleEnum:Int,ExampleProtocol {
     case type,title
     var simpleDescription:String {
@@ -520,15 +520,84 @@ enum SimpleEnum:Int,ExampleProtocol {
         }
     }
     func adjust() {
+        print("this is enum")
         simpleDescription
     }
 }
 var c = SimpleEnum.type
+c.simpleDescription
 c.adjust()
+//
+extension Int:ExampleProtocol {
+    
+    var simpleDescription:String {
+        return "The number \(self)"
+    }
+    mutating func adjust() {
+        self += 42
+    }
+}
+print(7.simpleDescription)
+extension Double {
+    var absoluteValue:String {
+        return "The Double number is \(self)"
+    }
+}
+print(2.0.absoluteValue)
+
+let protocolValue:ExampleProtocol = a
+print(protocolValue.simpleDescription)
+// 打开注释你就会发现报错信息
+//print(protocolValue.anotherProperty)
+//Value of type 'ExampleProtocol' has no member 'anotherProperty'
 
 
+// 错误处理
+enum PrinterError:Error {
+    case outOfPaper
+    case noToner
+    case onFire
+}
+// 错误处理
+func send(job:Int,toPrinter printerName:String) throws-> String {
+    if printerName == "Never Has Toner" {
+        throw PrinterError.noToner
+    } else if printerName == "Out Of Paper"
+    {
+        throw PrinterError.outOfPaper
+    }
+    else if printerName == "On fire" {
+        throw PrinterError.onFire
+    }
+    return "Job sent"
+}
+do {
+    let printerResponse = try send(job: 1040, toPrinter: "Bi sheng")
+    print(printerResponse)
+} catch  {
+    print(error)
+}
+// 小练习
+do {
+    let printerResponse = try send(job: 1040, toPrinter: "Never Has Toner")
+    print(printerResponse)
+} catch  {
+    print(error)
+}
 
+do {
+    let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+    print(printerResponse)
+} catch PrinterError.onFire {
+    print("I'll just put this over here,with the rest of the fire")
+} catch let printferError as PrinterError {
+    print("Printer error:\(printferError)。")
+} catch {
+    print(error)
+}
 
+let printerSuccess = try?send(job: 1884, toPrinter: "Mergenthaler")
+let printerFailure = try?send(job: 1885, toPrinter:"Never Has Toner")
 
 
 
