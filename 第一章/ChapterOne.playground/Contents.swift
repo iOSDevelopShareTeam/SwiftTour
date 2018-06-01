@@ -598,10 +598,72 @@ do {
 
 let printerSuccess = try?send(job: 1884, toPrinter: "Mergenthaler")
 let printerFailure = try?send(job: 1885, toPrinter:"Never Has Toner")
+// 练习 defer 使用
+var fridgeIsOpen = false
+let fridgeContent = ["milk","eggs","leftovers"]
+func fridgeContains(_ food:String) -> Bool {
+    fridgeIsOpen = true
+    defer {
+        fridgeIsOpen = false
+    }
+    let result = fridgeContent.contains(food)
+    return result
+    
+}
+fridgeContains("banana")
+print(fridgeIsOpen)
+//泛型
+func makeArray<Item>(repeating item:Item, numberOfTimes:Int) -> [Item] {
+    var result = [Item]()
+    for _ in 0 ..< numberOfTimes {
+        result.append(item)
+    }
+    return result
+}
+makeArray(repeating: "knock", numberOfTimes: 4)
 
+// Reimplement the Swift standard library's optional type 实现标准库中的可选类型
+enum OptionalValue<Wrapped> {
+    case none
+    case some(Wrapped)
+}
+var possibleInteger:OptionalValue<Int> = .none
+possibleInteger = .some(100)
 
+print("\(possibleInteger)")
 
+// 使用where添加条件
+func anyCommonElements<T:Sequence,U:Sequence>(_ lhs:T,_ rhs:U)->Bool
+    where T.Iterator.Element:Equatable,
+    T.Iterator.Element ==
+    U.Iterator.Element {
+        for lhsItem in lhs {
+            for rhsItem in rhs {
+                if lhsItem == rhsItem {
+                    return true
+                }
+            }
+    }
+    return false
+}
+anyCommonElements([1,2,3], [3])
 
+// 小练习 修改`anyCommonElements(:)`函数来创建一个函数，返回一个数组。内容是两个序列里的公共元素。
+func anyCommonArrayElements<T:Sequence,U:Sequence>(_ lhs:T,_ rhs:U)->Array<Any>
+    where T.Iterator.Element:Equatable,
+    T.Iterator.Element ==
+    U.Iterator.Element {
+        var  array = Array<Any>()
+        for lhsItem in lhs {
+            for rhsItem in rhs {
+                if lhsItem == rhsItem {
+                   array.append(lhsItem)
+                }
+            }
+        }
+        return array
+}
+anyCommonArrayElements([1,2,3], [2,3,4,5])
 
 
 
