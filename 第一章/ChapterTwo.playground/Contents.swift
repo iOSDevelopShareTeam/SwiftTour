@@ -12,4 +12,9 @@ var red,green,blue:Double
 let π = 3.14159
 let 你好 = "你好世界"
 let 🐶🐂 = "dogcow"
-
+var friendWelcome = "hello !"
+friendWelcome = "Bonjour ！"
+let languageName = "Swift"
+//languageName = "c++"
+print(friendWelcome)
+// 打印出 friendWelcome 的值
