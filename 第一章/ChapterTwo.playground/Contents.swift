@@ -32,3 +32,46 @@ let cat = "🐱";print(cat)
 let minValue = UInt8.min // UInt8的最小值为0
 let maxValue = UInt8.max // UInt8的最大值为2
 print("minValue of UInt8 is \(minValue) and maxValue of UInt8 is \(maxValue)。")
+let meaningOfLife = 42
+// meaningOfLife will be inferred to be of  type Int  这里常量meaningOfLife 会被便以及推断为一个整型
+let  pi = 3.14159
+// pi will be inferred to be of type Double 这里常量pi会被默认推断为DoubleL类型的数据。
+
+let anotherPi = 3 + 0.14159
+// anotherPi will be inferred of type Double 这里常量anotherPi会被swift推断为Double类型的数据。
+let decimalInteger = 17
+let binaryInteger  = 0b10001// 二进制的17 2*2*2*2+1
+let octalInteger = 0o21 // 八进制的17 2*8+1*1
+let hexadecimalInteger = 0x11 // 十六进制的17 16*1+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
