@@ -96,6 +96,27 @@ let i = 1
 if i == 1 {
     // 这个例子能编译成功不报错。因为这里i == 1 是一个判断语句
 }
+//元组
+let http404Error = (404,"Not Found")
+
+let (statusCode, statusMessage) = http404Error
+print("The status code is \(statusCode)")
+//输出的状态码为 404
+print("The status message is \(statusMessage)")
+// 输出的状态描述为 Not Found
+
+let  (justTheStatusCode,_) =  http404Error
+print("The status code is \(justTheStatusCode)")
+
+print("The status code is \(http404Error.0)")
+//输出的状态码为 404
+print("The status message is \(http404Error.1)")
+// 输出的状态描述为 Not Found
+let http200Status = (statusCode:200,description:"OK")
+print("The status code is \(http200Status.statusCode)")
+////输出的状态码为 200
+print("The status message is \(http200Status.description)")
+// 输出的状态描述为 OK
 
 
 
