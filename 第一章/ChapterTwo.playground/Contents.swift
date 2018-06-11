@@ -62,10 +62,40 @@ let twoThousand:UInt16 = 2_000
 let one:UInt8 = 1
 let twoThousandAndOne = twoThousand + UInt16(one)
 
+// 整数和浮点数类型转换
+let three = 3
+let pointOneFourOneFiveNine = 0.14159
+let pi1 = Double(three) + pointOneFourOneFiveNine
+
+//用浮点型来初始化一个整型常量
+let integerPi = Int(pi1)
+// 类型别名的使用
+typealias AudioSample = UInt16
+
+var maxAmplitudeFound = AudioSample.min
 
 
+// 布尔值
+let  ornagesAndOrange = true
+let  turnipsAndDelicious = false
+if turnipsAndDelicious {
+    print("Mmm, tasty turnips!")
+} else {
+    print("Eww, turnips are horrible.")
+}
+//这里打印的是else的内容，因为值为false
 
-
+//这个例子不会编译成功，会报错（报错原因是 判断的值不是bool类型）
+/*
+let i = 1
+if i {
+    // 这个例子不会编译成功，会报错
+}
+ */
+let i = 1
+if i == 1 {
+    // 这个例子能编译成功不报错。因为这里i == 1 是一个判断语句
+}
 
 
 
