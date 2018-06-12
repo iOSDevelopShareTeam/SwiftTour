@@ -118,9 +118,37 @@ print("The status code is \(http200Status.statusCode)")
 print("The status message is \(http200Status.description)")
 // 输出的状态描述为 OK
 
+//
+let possibleNumber = "123"
+let convertedNumber = Int(possibleNumber)
+//这里的convertedNumber 被编译器推断为'Int'类型，或者类型 ‘optional Int’
+var serverResponseCode:Int? = 404
+// serverResponseCode中包含了一个可选的Int类型的值404
+serverResponseCode = nil
+// 这里serverResponseCode的值为nil(值不存在)
 
+var surveyAnswer:String?
+//这里surveyAnswer将会被自动设置为nil
+if convertedNumber != nil {
+    print("convertedNumber contains some integer value.")
+}
+// 输出convertedNumber contains some integer value.
+if convertedNumber != nil {
+    print("convertedNumber has an integer value of \(convertedNumber!).")
+}
+//输出的是 convertedNumber has an integer value of 123.
+/*
+if let constantName = someOptional {
+    statements
+}
+ */
 
-
+if let actualNumber = Int(possibleNumber) {
+    print("\'\(possibleNumber)\' has an integer value of \(actualNumber)")
+} else {
+    print("\'\(possibleNumber)\'  could not be converted to an integer")
+}
+// 输出 '123' has an integer value of 123
 
 
 
