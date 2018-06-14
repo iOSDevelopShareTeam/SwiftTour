@@ -1,8 +1,9 @@
 # Swift4.1
+边学边翻译。
 #  欢迎使用Swift
-* [关于Swift](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E7%AC%AC%E4%B8%80%E7%AB%A0.md)
-* [版本兼容性](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E7%AC%AC%E4%B8%80%E7%AB%A0.md)
-* [Swift之旅](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E7%AC%AC%E4%B8%80%E7%AB%A0.md)
+* [关于Swift](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.%E5%85%B3%E4%BA%8ESwift.md)
+* [版本兼容性](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/2.%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7.md)
+* [Swift之旅](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/3.Swift%E4%B9%8B%E6%97%85.md)
 
 # Swift 教程
 * [基础部分](https://github.com/iOSDevelopShareTeam/SwiftTourv4.1/blob/master/%E7%AC%AC%E4%BA%8C%E7%AB%A0/1.%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86.md)
