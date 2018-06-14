@@ -150,12 +150,86 @@ if let actualNumber = Int(possibleNumber) {
 }
 // 输出 '123' has an integer value of 123
 
+if let firstNumber = Int("4"),let secondNumber = Int("42"),firstNumber < secondNumber && secondNumber < 100 {
+    print("\(firstNumber) < \(secondNumber) < 100")
+}
+// 打印的结果是：4 < 42 < 100
+if let firstnumber = Int("4") {
+    if  let  secondnumber = Int("42") {
+        if firstnumber < secondnumber && secondnumber < 100 {
+            print("\(firstnumber) < \(secondnumber) < 100")
+        }
+    }
+}
+// 打印的结果是：4 < 42 < 100
 
+let  possibleString:String? = "An optional string."
+let forcedString:String = possibleString!
+//需要用感叹号来获取值
 
+let  assumedString:String! = "An implicitly unwrapped optional string."
+let implicitString:String = assumedString
+// 不需要用感叹号就能获取值
 
+if assumedString != nil {
+    print(assumedString!)
+}
+// 打印出 An implicitly unwrapped optional string.
 
+if let definiteString = assumedString {
+    print(definiteString)
+}
+// 打印出 An implicitly unwrapped optional string.
 
+func canThrowAnError () throws {
+    // this function may or may not throw an error
+}
 
+// 异常捕获
+do {
+    try canThrowAnError()
+    // no error was thrown
+} catch  {
+    // an error was thrown
+}
+
+func makeASandwich() throws {
+    
+}
+/*
+ do {
+ try makeASandwich()
+ eatASandwich()
+ } catch SandwichError.outOfCleardishes {
+ washDishes()
+ } catch SandwichError.missingTngredients {
+ buyGroceries(ingredients)
+ }
+ */
+
+// 断言调试
+/*
+let age = -3
+assert(age >= 0,"A person's age can't be less than zero.")
+// 这个断言会失败 因为一个人的年龄不可能小于0（把断言中的语句变为age <= 0,就不会走这个断言）
+ */
+// 省略掉断言的提示语
+/*
+ assert(age >= 0)
+ */
+/*
+if age > 10 {
+    print("You can ride the roller-coaster or the ferris wheel.")
+} else if age > 0 {
+    print("You can ride the ferris wheel.")
+} else {
+    assertionFailure("A person's age can't be less than zero.")
+}
+ */
+/*
+// 下标中的实现
+precondition(index > 0, "Index must be greater than zero.")
+ */
 
 
 
