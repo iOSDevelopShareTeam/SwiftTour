@@ -230,15 +230,23 @@ if age > 10 {
 // 下标中的实现
 precondition(index > 0, "Index must be greater than zero.")
  */
+let b = 10
+var a = 5
+a = b
+// 现在a的值为10
+let (m, n) = (1,2)
+//  x的值为1  y的值为2
 
+//if x = y {
+//    // 这是不合法的，因为等式 x = y没有返回值。
+//}
 
+1 + 2 // 等于3
+5 - 3 // 等于2
+2 * 3 // 等于6
+10.0 / 2.5 // 等于4.0
 
-
-
-
-
-
-
+// "hello," + “world” // 等价于hello,world
 
 
 
