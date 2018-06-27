@@ -247,6 +247,23 @@ let (m, n) = (1,2)
 10.0 / 2.5 // 等于4.0
 
 // "hello," + “world” // 等价于hello,world
+9 % 4 // 等价于1
+// a = (b * 倍数) + 余数
+// 带入等式
+9 == (4 * 2) + 1
+-9 % 4
+/*
+let three = 3
+let minusThree  = -three// 等价于 -3
+let plusThree = -minusThree // 等价于3
+ */
+let minusSix = -6
+let  alsoMinusSix = +minusSix
+//alsoMinusSix 的值仍为-6
+var aa = 1
+aa += 2 // 这里a的值为3
+print("aa value is \(aa)")
+
 
 
 
