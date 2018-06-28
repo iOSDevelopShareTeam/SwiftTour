@@ -264,8 +264,46 @@ var aa = 1
 aa += 2 // 这里a的值为3
 print("aa value is \(aa)")
 
+1 == 1 // true 因为1和1 相等
+2 != 1 // true 因为2 不等于1
+2 > 1 // true 因为2 大于 1
+1 < 2 // true 因为1 小于2
+1 >= 1 // true 因为1 等于1 满足1 大于等于1
+2 <= 1 // false 因为2 小于等于1
+let  name = "world"
+if name == "world" {
+    print("Hello world")
+} else {
+    print("I'm sorry \(name),but I don't recognize you")
+}
+// 打印的结果是 Hello world 因为name 等于“world”
 
-
+(1,"zebra") < (2,"apple") //返回true 因为1比2小，"zebra"和"apple"是不能被比较的
+(3,"apple") < (3,"bird") // 返回true 因为3 等于 3，"apple" 比"bird"少
+(4,"dog") < (4,"dog") // 返回true，因为4 等于4 “dog”和“dog”相同。
+("blue",-1) < ("purple",1)
+//("blue",false) < ("purple",true) //Binary operator '<' cannot be applied to two '(String, Bool)' operands
+//let  question = true
+//let answer1 = "333"
+//let answer2 = "333"
+//print("the answer is \(question ? answer1:answer2)")
+//if question {
+//    answer1
+//} else {
+//    answer2
+//}
+//let contentHeight = 40
+//let hasHeader = true
+//let rowHeight = contentHeight + (hasHeader ? 50:20)// 结果为90
+let contentHeight = 40
+let hasHeader = true
+let rowHeight:Int
+if hasHeader {
+    rowHeight = contentHeight + 50
+} else {
+    rowHeight = contentHeight + 20
+}
+// rowHeight 结果为90
 
 
 
