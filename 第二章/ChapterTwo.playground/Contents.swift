@@ -304,6 +304,14 @@ if hasHeader {
     rowHeight = contentHeight + 20
 }
 // rowHeight 结果为90
+//空合表达式
+var aaa:Int?
+var bbb = 6
+aaa != nil ? aaa!  : bbb
+let defaultColorName = "red"
+var userDefinedColorName: String?//默认值是nil
+var colorNameToUse = userDefinedColorName ?? defaultColorName
+// 因为userDefinedColorName是nil，所以colorNameToUse被设置为默认值"red"
 
 
 
