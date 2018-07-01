@@ -352,5 +352,14 @@ for name in names[..<2] {
 // 打印结果是：
 //Anna
 //Alex
+let range = ...5
+range.contains(7) //false
+range.contains(4) //true
+range.contains(-1) //true
 
+let  allowedEntry = false
+if !allowedEntry {
+    print("ACCESS DENIED")
+}
 
+//打结果是ACCESS DENIED
