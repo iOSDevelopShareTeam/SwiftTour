@@ -362,4 +362,37 @@ if !allowedEntry {
     print("ACCESS DENIED")
 }
 
-//打结果是ACCESS DENIED
+//打印结果是ACCESS DENIED
+
+let enterDoorCode = true
+let passedRetainScan = false
+if enterDoorCode && passedRetainScan {
+    print("Welcome!")
+} else {
+    print("ACCESS DENIED")
+}
+//打印结果是ACCESS DENIED
+let hasDoorKey = false
+let knowsOverridePassword = true
+if hasDoorKey || knowsOverridePassword {
+    print("Welcome!")
+} else {
+    print("ACCESS DENIED")
+}
+//打印结果是Welcome!
+
+if enterDoorCode && passedRetainScan || hasDoorKey || passedRetainScan {
+    print("Welcome!")
+} else {
+    print("ACCESS DENIED")
+}
+//打印结果是Welcome!
+
+if (enterDoorCode && passedRetainScan) || hasDoorKey || knowsOverridePassword {
+    print("Welcome!")
+} else {
+    print("ACCESS DENIED")
+}
+//打印结果是Welcome!
+
+
